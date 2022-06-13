@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+<section class="app">
+
+    <div class="main">
+        <header class="gameheader">Tic Tac Toe </header>
+        <div class="turns">player 1  turn</div>
+        <div class="gamecontainer">
+            <div class="game">
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+                <div class="square"></div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<div id="playercon" style="display: none">
+    <div id="playerform">
+        <div id="playerconheader">
+            <div id="title">Set Players</div>
+            <button id="close">_</button>
+        </div>
+        <label for="player1">
+            Player 1 Name:
+            <input id="player1" placeholder="" name="player1" class="playerinput" type="text" required="">
+        </label>
+        <label for="player2">
+            Player 2 Name:
+            <input id="player2" placeholder="" name="player1" class="playerinput" type="text" required="">
+        </label>
+        <button id="set">Submit</button>
+    </div>
+</div>
+
+<footer id="taskbar" >
+    <div id="taskbarcontent" >
+        <button class="taskbtn restart">Restart</button>
+        <button class="taskbtn setplayers">Set Players</button>
+    </div>
+</footer>
+</body>
+</html>

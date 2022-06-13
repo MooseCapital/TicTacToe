@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: mssans, serif;
+    font-size: 20px;
+
+}
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    min-width: 100%;
+
+}
+@font-face {
+    font-family: 'mssans';
+    src: url('MSSansSerif.ttf');
+}
+.app {
+
+height: 100%;
+display: grid;
+    min-height: 100vh;
+    min-width: 100vw;
+
+}
+
+
+#taskbar {
+    bottom: 0;
+    left: 0;
+    padding: 0;
+    position: absolute;
+    right: 0;
+}
+#taskbarcontent {
+    border-top: 2px solid white;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    height: 35px;
+    background-color: rgb(192,192,192);
+}
+
+
+.taskbtn {
+    background-color: rgb(192,192,192);
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    margin-left: 5px;
+    margin-right: 3px;
+    padding: 1px 10px;
+    border-radius: 0;
+    color: black;
+    text-align: center;
+    cursor: pointer;
+    z-index: 10;
+}
+.taskbtn:active {
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-bottom: 1px solid white;
+    border-right: 1px solid white;
+}
+.active {
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-bottom: 1px solid white;
+    border-right: 1px solid white;
+    cursor: pointer;
+}
+
+.main {
+    display: grid;
+ grid-template-rows: 1fr 80px 5fr;
+ /*background-color: aquamarine;*/
+}
+
+.gameheader {
+
+align-self: center;
+font-size: 100px;
+justify-self: center;
+font-weight: bolder;
+}
+.turns {
+
+align-self: center;
+justify-self: center;
+
+}
+.gamecontainer {
+
+display: grid;
+justify-content: center;
+align-content: start;
+}
+
+#playercon {
+
+    margin: 0;
+    padding: 2% 3% 30px;
+    position: absolute;
+    bottom: 300px;
+    left: 200px;
+    z-index: 1;
+
+}
+#playerform {
+    background-color: rgb(192,192,192);
+    width: min-content;
+    height: min-content;
+    padding: 3px;
+    display: grid;
+
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    z-index: 2;
+
+}
+#playerconheader {
+    background: linear-gradient(90deg,navy,#1084d0);
+    height: 30px;
+    width: 230px;
+    cursor: pointer;
+    z-index: 3;
+    color: white;
+    grid-auto-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    display: grid;
+    padding: 0 3px;
+}
+.game {
+
+    display: grid;
+    grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+    gap: 10px;
+
+}
+.square {
+    background-color: rgb(192,192,192);
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    height: 200px;
+    width: 200px;
+    z-index: 200;
+    font-family: Manjari, sans-serif;
+    font-size: 200px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.square:hover {
+    background-color: rgb(192,192,192, 0.7);
+}
+#playerform label {
+margin-top: 10px;
+
+margin-left: 10px;
+
+}
+#playerform input {
+width: 180px;
+margin-top: 5px;
+border-radius: 0;
+border: 1px solid black;
+text-align: center;
+}
+#set {
+width: 150px;
+margin-top: 10px;
+justify-self: center;
+    background-color: rgb(192,192,192);
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+#set:active {
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-bottom: 1px solid white;
+    border-right: 1px solid white;
+}
+#title {
+color: white;
+font-weight: bolder;
+z-index: 20;
+}
+#close {
+    background-color: rgb(192,192,192);
+    border-top: 1px solid white;
+    border-left: 1px solid white;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    width: 22px;
+    height: 23px;
+    cursor: pointer;
+    z-index: 40;
+    border-radius: 0;
+
+}
+
+
