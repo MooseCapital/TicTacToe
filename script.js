@@ -60,21 +60,35 @@ const gameboard = (() => {
     const close = document.querySelector("#close");
     const playerbtn = document.querySelector(".setplayers");
     const square = document.querySelectorAll(".square");
-    
+    const restart = document.querySelector(".restart");
+    // let player1input = document.querySelector("#player1");
+    // let player2input = document.querySelector("#player2");
+    // const submit = document.querySelector("#set")
+
+    // submit.addEventListener("click", () => {
+    //     // game.playerone = {name:`${player1input.value}`, symbol: "x"}
+    //     // game.playertwo = {name:`${player2input.value}`, symbol: "o"}
+    //     // game.turns.innerText = `${game.activeplayer.name}'s Turn`;
+    //     game.changePlayers(player1input, player2input);
+    //
+    // })
+
     playerbtn.addEventListener("click", () => {
         if (playercontainer.getAttribute("style") === "display: none") {
             playercontainer.setAttribute("style", "display: grid");
             playerbtn.classList.add("active");
-            console.log(playercontainer.getAttribute("style"));
+            
         } else if (playercontainer.getAttribute("style") !== "display: none") {
             playercontainer.setAttribute("style", "display: none");
             playerbtn.classList.remove("active");
-            console.log(playercontainer.getAttribute("style"));
+            
 
         }
 
     })
+   
 
+        
     close.addEventListener("click", () => {
         if (playercontainer.getAttribute("style") !== "display: none") {
             playercontainer.setAttribute("style", "display: none");
@@ -95,7 +109,34 @@ const gameboard = (() => {
             game.remainingSpots -= 1;
             
             game.checkWinner();
-            console.log(e.currentTarget);
+
+            // restart.addEventListener("click", () => {
+            //
+            //         e.target.innerText = "";
+            //         e.target.style = "";
+            //         e.target.className = "square";
+            //
+            //
+            //     board = ["", "", "", "", "", "", "", "", "",];
+            //     game.winnerDeclared = false;
+            //     game.remainingSpots = 9;
+            //     game.activeplayer = game.playerone;
+            //
+            //     console.log(board);
+            //     console.log(game.winnerDeclared);
+            // })
+            
+            if (game.winnerDeclared === false) {
+                if (game.remainingSpots > 0) {
+                    game.nextPlayer();
+                    game.alertNextPlayer();
+                    
+                } else if (game.remainingSpots === 0) {
+                    game.declareTie();
+                }
+            }
+
+
 
         })
     })
@@ -111,13 +152,15 @@ const gameboard = (() => {
 
 
 const game = (() => {
-
-    const playerone = setplayer("player 1", "x");
-    const playertwo = setplayer("player 2", "o");
+    //const restart = document.querySelector(".restart");
+    const turns = document.querySelector(".turns")
+    let playerone = setplayer("player 1", "x");
+    let playertwo = setplayer("player 2", "o");
 
     let activeplayer = playerone;
     let winnerDeclared = false;
     let remainingSpots = 9;
+
 
     let winningnum = [
         [0,1,2],
@@ -130,16 +173,52 @@ const game = (() => {
         [2,4,6],
         ];
 
-    function checkWinner() {
-
+    // function changePlayers(input1, input2) {
+    //
+    //     playerone = setplayer(`${input1.value}`, "x");
+    //     playertwo = setplayer(`${input2.value}`, "o");
+    //     nextPlayer();
+    //     turns.innerText = `${activeplayer.name}'s Turn`;
+    // }
+    let declareTie = () => {
+        turns.innerText = "It is a Tie";
     }
+    function checkWinner() {
+        winningnum.forEach((num, index) => {
+            if (gameboard.board[num[0]] === this.activeplayer.symbol && gameboard.board[num[1]] === this.activeplayer.symbol && gameboard.board[num[2]] === this.activeplayer.symbol  ) {
 
-
+                this.winnerDeclared = true;
+                turns.innerText = `${this.activeplayer.name} has Won!`;
+                console.log("winner !!")
+            }
+        })
+    }
+    function nextPlayer() {
+        
+       this.activeplayer === playerone ? this.activeplayer = playertwo : this.activeplayer = playerone;
+       
+    }   
+    
+    function alertNextPlayer() {
+        turns.innerText = `${this.activeplayer.name}'s Turn`;
+    }
+    
+    // function restartGame(div, e) {
+    // div.style = "";
+    // div.sq.parentElement.
+    // }
+    
     return {
      activeplayer,
      checkWinner,
      remainingSpots,
-
+     winnerDeclared,
+     nextPlayer,
+     alertNextPlayer,
+     declareTie,
+     playerone,
+     playertwo,
+     turns,
     };
 })();
 

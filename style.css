@@ -75,7 +75,7 @@ display: grid;
 .main {
     display: grid;
  grid-template-rows: 1fr 80px 5fr;
- /*background-color: aquamarine;*/
+ background-color: aquamarine;
 }
 
 .gameheader {
